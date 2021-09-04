@@ -3,39 +3,32 @@ var membersWeeks: [Int] = []
 var memberWeeks = 0
 var freeBankMoney = 0
 
-print("Enter a bid (must be a number):")
-if let input = readLine(strippingNewline: true) {
-    bid = Int(input)!
-}
+print("Let's calculate how much money you can withdraw".green)
 
-print("Enter freeBankMoney (must be a number):")
-if let input = readLine(strippingNewline: true) {
-    freeBankMoney = Int(input)!
-}
+print("Enter a bid (must be a number):".yellow)
+bid = readIntOrError()
 
-print("Enter current member weeks (must be a number):")
-if let input = readLine(strippingNewline: true) {
-    memberWeeks = Int(input)!
-    membersWeeks.append(Int(input)!)
-}
+print("Enter the number of free money in the bank (must be a number):".yellow)
+freeBankMoney = readIntOrError()
+
+print("Enter the number of active weeks of the current participant (must be a number):".yellow)
+memberWeeks = readIntOrError()
+membersWeeks.append(memberWeeks)
+
+print("Now, for each still active participant, enter its number of active weeks".green)
+print("Enter \"e\" to stop".green)
 
 while (true) {
-    print("Enter other member weeks (must be a number)")
-    print("Enter e to break")
-    if let input = readLine(strippingNewline: true) {
-        if let number = Int(input) {
-            membersWeeks.append(number)
-        } else if input == "e" {
-            break
-        } else {
-            print("Error try again!")
-        }
+    print("Enter the number of active weeks of another active participant (must be a number)".yellow)
+    let input = readLineOrError()
+    if input == "e" {
+        break
+    } else if let number = Int(input) {
+        membersWeeks.append(number)
     } else {
-        print("Error try again!")
+        print("Not a number, try again!".red)
     }
 }
-
-print("Calculating")
 
 let result = calculateWin(
     bid: bid,
@@ -43,11 +36,8 @@ let result = calculateWin(
     membersWeeks: membersWeeks,
     memberWeeks: memberWeeks
 )
-print("result = \(result)")
 
-func calculatePercentage(of value: Double, in totalValue: Double) -> Double {
-    value / totalValue
-}
+print("You can withdraw \(result)".green)
 
 func calculateWin(
     bid: Int,
@@ -56,17 +46,41 @@ func calculateWin(
     memberWeeks: Int
 ) -> Double {
     let membersWeeksReduced = membersWeeks.reduce(0, +)
-
-    let percent = calculatePercentage(
-        of: Double(memberWeeks),
-        in: Double(membersWeeksReduced)
-    )
-
-    let bankMoney: Double = (Double(freeBankMoney) * Double(percent))
-
+    let percent = Double(memberWeeks) / Double(membersWeeksReduced)
+    let bankMoney: Double = (Double(freeBankMoney) * percent)
     let ownMoney: Double = Double(bid) * Double(memberWeeks)
+    return bankMoney + ownMoney
+}
 
-    let result = bankMoney + ownMoney
+func readLineOrError() -> String {
+    if let input = readLine(strippingNewline: true) {
+        return input
+    } else {
+        print("Try again!".red)
+        return readLineOrError()
+    }
+}
 
-    return result
+func readIntOrError() -> Int {
+    let input = readLineOrError()
+    if let number = Int(input) {
+        return number
+    } else {
+        print("Not a number, try again!".red)
+        return readIntOrError()
+    }
+}
+
+extension String {
+    var green: String {
+        "\u{001B}[0;32m\(self)"
+    }
+
+    var yellow: String {
+        "\u{001B}[0;33m\(self)"
+    }
+
+    var red: String {
+        "\u{001B}[0;31m\(self)"
+    }
 }
