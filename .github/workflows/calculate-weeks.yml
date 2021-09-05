@@ -24,7 +24,7 @@ on:
 jobs:
 
   check_repo_commits:
-    runs-on: ubuntu-lastest
+    runs-on: self-hosted
     env:
       TEST_REPO_URL: https://github.com/VladimirBrejcha/Rise.git
     steps:
