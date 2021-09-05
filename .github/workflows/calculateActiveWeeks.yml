@@ -27,9 +27,9 @@ jobs:
           fetch-depth: 0
       - name: Calculate
         run: |
-          echo -e "\e[1;32m Stats for $AUTHOR_1 \e[0m"
+          printf "%s\n" "Stats for $AUTHOR_1"
           swift ${GITHUB_WORKSPACE}/ChallengeActiveWeeksCalculator.swift -since $START_DATE_1 -repo $REPO_1 -author $AUTHOR_1
-          echo -e "\e[1;32m Stats for $AUTHOR_2 \e[0m"
+          printf "%s\n" "Stats for $AUTHOR_2"
           swift ${GITHUB_WORKSPACE}/ChallengeActiveWeeksCalculator.swift -since $START_DATE_2 -repo $REPO_2 -author $AUTHOR_2
-          echo -e "\e[1;32m Stats for $AUTHOR_3 \e[0m"
+          printf "%s\n" "Stats for $AUTHOR_3"
           swift ${GITHUB_WORKSPACE}/ChallengeActiveWeeksCalculator.swift -since $START_DATE_3 -repo $REPO_3 -author $AUTHOR_3
