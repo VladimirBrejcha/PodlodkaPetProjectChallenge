@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
   check_repo_commits:
     runs-on: self-hosted
     env:
@@ -14,6 +13,8 @@ jobs:
     steps:
       - name: Run a multi-line script
         run: |
-          git clone ${{ env.TEST_REPO_URL }}
+          git clone ${{ env.TEST_REPO_URL }} projectFolder
           cd Rise
           git log --format=%cd
+          cd ../
+          rm -rf $GITHUB_WORKSPACE/projectFolder
