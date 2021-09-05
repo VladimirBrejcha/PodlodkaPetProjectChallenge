@@ -1,4 +1,4 @@
-name: Calculate weeks
+name: Calculate participants weeks
 
 on:
   schedule:
