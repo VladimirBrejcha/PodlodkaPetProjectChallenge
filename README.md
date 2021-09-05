@@ -38,9 +38,9 @@
 
 **Присоединился** 06.09.21
 
-**Цель** Завершение всех фич в github (необходимо добавить ссылку)
+**Цель** Завершение всех фич описанных в github
 
-**Проект** (необходимо добавить ссылку)
+[Проект](https://github.com/Ernest0-Production/RedmineClient)
 
 ### VladimirBrejcha
 
@@ -49,3 +49,13 @@
 **Цель** Релиз MVP в AppStore
 
 [Проект](https://github.com/VladimirBrejcha/Rise)
+
+### LeshaAleshaaa
+
+**Присоединился** 06.09.21
+
+**Цель** Изучение SwiftUI
+
+[Проект](https://github.com/LeshaAleshaaa/SwiftUIProject)
+
+

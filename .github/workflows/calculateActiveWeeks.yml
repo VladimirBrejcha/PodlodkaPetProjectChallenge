@@ -19,4 +19,4 @@ jobs:
           fetch-depth: 0
       - name: Get commit dates
         run: 
-          swift ${GITHUB_WORKSPACE}/GetCommitDates.swift -since $TEST_DATE -repo $TEST_REPO -author $TEST_AUTHOR
+          swift ${GITHUB_WORKSPACE}/ChallengeActiveWeeksCalculator.swift -since $TEST_DATE -repo $TEST_REPO -author $TEST_AUTHOR
