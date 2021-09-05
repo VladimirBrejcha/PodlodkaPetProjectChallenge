@@ -1,4 +1,4 @@
-name: calculate_weeks
+name: Calculate weeks
 
 on:
   schedule:
@@ -13,10 +13,10 @@ jobs:
       TEST_REPO: Rise
       TEST_AUTHOR: VladimirBrejcha
     steps:
-      - name: fetch_repo
+      - name: Fetch repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: get_commit_dates
+      - name: Get commit dates
         run: 
           swift ${GITHUB_WORKSPACE}/GetCommitDates.swift -since $TEST_DATE -repo $TEST_REPO -author $TEST_AUTHOR
