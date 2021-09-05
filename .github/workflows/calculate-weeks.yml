@@ -15,4 +15,4 @@ jobs:
     steps:
       - name: Run a multi-line script
         run: 
-          swift "${GITHUB_WORKSPACE}/GetCommitDates.swift -since $01:01:2021 -repo $Rise -author $VladimirBrejcha
+          swift ${GITHUB_WORKSPACE}/GetCommitDates.swift -since $01:01:2021 -repo $Rise -author $VladimirBrejcha
