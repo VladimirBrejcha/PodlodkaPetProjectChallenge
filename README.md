@@ -22,7 +22,7 @@
 
 Частично автоматизировано
 
-[GitHub Action](.github/workflows/calculateActiveWeeks.yml)
+[GitHub Action](.github/workflows/calculateParticipantsWeeks.yml.yml)
 
 - Автоматически исполняется каждый понедельник в 8 утра при наличии активного раннера
 - Выводит количество ставок сделанных каждым из участников
