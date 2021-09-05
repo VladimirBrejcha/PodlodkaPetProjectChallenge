@@ -39,6 +39,8 @@ let result = calculateWin(
 
 print("You can withdraw \(result)".green)
 
+// MARK: - Realisation -
+
 func calculateWin(
     bid: Int,
     freeBankMoney: Int,
