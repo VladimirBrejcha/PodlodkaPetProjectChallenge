@@ -10,11 +10,12 @@ jobs:
     runs-on: self-hosted
     env:
       TEST_REPO_URL: https://github.com/VladimirBrejcha/Rise.git
+      PROJECT_FOLDER: projectFolder
     steps:
       - name: Run a multi-line script
         run: |
-          git clone ${{ env.TEST_REPO_URL }} projectFolder
-          cd Rise
+          git clone ${{ env.TEST_REPO_URL }} $PROJECT_FOLDER
+          cd $PROJECT_FOLDER
           git log --format=%cd
           cd ../
-          rm -rf $GITHUB_WORKSPACE/projectFolder
+          rm -rf $GITHUB_WORKSPACE/$PROJECT_FOLDER
