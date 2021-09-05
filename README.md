@@ -65,6 +65,8 @@
 
 [Проект](https://github.com/Ernest0-Production/RedmineClient)
 
+---
+
 #### VladimirBrejcha
 
 **Присоединился** 06.09.21
@@ -72,6 +74,8 @@
 **Цель** Релиз MVP в AppStore
 
 [Проект](https://github.com/VladimirBrejcha/Rise)
+
+---
 
 #### LeshaAleshaaa
 
