@@ -5,6 +5,9 @@ import Foundation
 var date: Date
 var repo: String
 var author: String
+var showDates: Bool = false
+
+// MARK: - Parse arguments -
 
 let arguments = CommandLine.arguments
 
@@ -25,13 +28,32 @@ author = arguments[authorArgIndex + 1]
 let repoArgIndex = arguments.firstIndex(of: "-repo")!
 repo = arguments[repoArgIndex + 1]
 
+if arguments.contains("-show-dates") {
+    showDates = true
+}
+
+// MARK: - Calculate bets in -
+
+let calendar = Calendar.current
+let components = calendar.dateComponents(
+    [.day],
+    from: calendar.startOfDay(for: date),
+    to: calendar.startOfDay(for: Date())
+)
+
+print("Total bets in: \(components.day! / 7)")
+
+// MARK: - Calculate completed weeks -
+
 getAllCommitDates(
     since: date,
     in: repo,
     author: author
 ) { dates in
-    print("All Dates:")
-    print(dates)
+    if showDates {
+        print("All Dates:")
+        print(dates)
+    }
 
     let dateFormatter = ISO8601DateFormatter()
     let numberOfWeeks = calculateNumberOfWeeksCompleted(from: dates.compactMap(dateFormatter.date(from:)))
@@ -59,7 +81,7 @@ func getAllCommitDates(
 
     let semaphore = DispatchSemaphore(value: 0)
 
-    URLSession.shared.dataTask(with: request) { (data, response, error) in
+    URLSession(configuration: .ephemeral).dataTask(with: request) { (data, response, error) in
         if let error = error {
             print(error.localizedDescription)
             completion([])
