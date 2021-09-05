@@ -30,15 +30,21 @@ getAllCommitDates(
     in: repo,
     author: author
 ) { dates in
-    print("Done")
+    print("All Dates:")
     print(dates)
+
+    let dateFormatter = ISO8601DateFormatter()
+    let numberOfWeeks = calculateNumberOfWeeksCompleted(from: dates.compactMap(dateFormatter.date(from:)))
+    print("Total completed weeks: \(numberOfWeeks)")
 }
+
+// MARK: - Realisation -
 
 func getAllCommitDates(
     since sinceDate: Date,
     in repo: String,
     author: String,
-    completion: @escaping ([Date]) -> Void
+    completion: @escaping ([String]) -> Void
 ) {
     let dateFormatter = ISO8601DateFormatter()
     let dateString = dateFormatter.string(from: sinceDate)
@@ -68,12 +74,9 @@ func getAllCommitDates(
         }
 
         do {
-            let response = try JSONDecoder().decode([Responce].self, from: data)
+            let response = try JSONDecoder().decode([Response].self, from: data)
             completion(
-                response
-                    .lazy
-                    .map(\.commit.author.date)
-                    .compactMap(dateFormatter.date(from:))
+                response.map(\.commit.author.date)
             )
             semaphore.signal()
         } catch (let e) {
@@ -85,7 +88,7 @@ func getAllCommitDates(
     semaphore.wait()
 }
 
-struct Responce: Decodable {
+struct Response: Decodable {
     struct Commit: Decodable {
         struct Author: Decodable {
             let date: String
@@ -93,4 +96,18 @@ struct Responce: Decodable {
         let author: Author
     }
     let commit: Commit
+}
+
+func calculateNumberOfWeeksCompleted(from dates: [Date]) -> Int {
+    let datesWithoutDuplicates = Set(
+        dates.map { date in
+            Calendar.current.dateComponents([.weekday, .weekOfYear], from: date)
+        }
+    )
+
+    let weekdaysInWeek = datesWithoutDuplicates
+        .reduce(into: [:]) { res, val in res[val.weekOfYear, default: 0] += 1 }
+        .filter { $0.value >= 3 }
+
+    return weekdaysInWeek.count
 }
