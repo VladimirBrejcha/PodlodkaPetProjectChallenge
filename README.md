@@ -51,7 +51,7 @@
 
 `-show-dates` - для вывода всех дат по репозиторию в лог
 
-#### Bets out
+#### Cash out
 
 [Скрипт для подсчета](ChallengeWinCalculator.swift)
 
