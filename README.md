@@ -1,12 +1,12 @@
-# PodlodkaPetProjectChallenge
+# Podlodka Pet Project Challenge
 
 Мотивируем друг друга на завершение своих пет проджектов!
 
-## Ставка
+## Current weekly bet
 
 **1000р**
 
-## Правила
+## Rules
 
 - Коммиты три раза в неделю (можно смотреть по карте активности в github профиле), иначе неделя считается пропущенной
 - Каждый участник за каждую неделю вносит в банк 1 ставку (по понедельникам)
@@ -14,11 +14,13 @@
 - Можно выйти из челенджа в любой момент, оплатив двойную ставку в банк
 - Можно вернуться в челендж в любой момент, оплатив двойную ставку в банк
 
-#### Требования к коммиту
+#### Commit requirements
 
 - Минимум 1 символ (добавлен/удален/изменен)
 
-## Подсчет количества недель
+## Calculating
+
+#### Bets in, weeks completed
 
 Частично автоматизировано
 
@@ -43,9 +45,13 @@
 
 `-show-dates` - для вывода всех дат по репозиторию в лог
 
-## Участники
+#### Bets out
 
-### Ernest0N
+[Скрипт для подсчета](ChallengeWinCalculator.swift)
+
+## Participants
+
+#### Ernest0N
 
 **Присоединился** 06.09.21
 
@@ -53,7 +59,7 @@
 
 [Проект](https://github.com/Ernest0-Production/RedmineClient)
 
-### VladimirBrejcha
+#### VladimirBrejcha
 
 **Присоединился** 06.09.21
 
@@ -61,12 +67,10 @@
 
 [Проект](https://github.com/VladimirBrejcha/Rise)
 
-### LeshaAleshaaa
+#### LeshaAleshaaa
 
 **Присоединился** 06.09.21
 
 **Цель** Изучение SwiftUI
 
 [Проект](https://github.com/LeshaAleshaaa/SwiftUIProject)
-
-
