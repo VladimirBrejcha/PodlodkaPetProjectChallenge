@@ -49,3 +49,13 @@
 **Цель** Релиз MVP в AppStore
 
 [Проект](https://github.com/VladimirBrejcha/Rise)
+
+### LeshaAleshaaa
+
+**Присоединился** 06.09.21
+
+**Цель** Изучение SwiftUI
+
+[Проект](https://github.com/LeshaAleshaaa/SwiftUIProject)
+
+
