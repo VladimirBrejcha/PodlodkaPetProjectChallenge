@@ -99,15 +99,17 @@ struct Response: Decodable {
 }
 
 func calculateNumberOfWeeksCompleted(from dates: [Date]) -> Int {
-    let datesWithoutDuplicates = Set(
-        dates.map { date in
-            Calendar.current.dateComponents([.weekday, .weekOfYear], from: date)
-        }
+    Dictionary(
+        grouping: Set(
+            dates.map { date in
+                Calendar.current.dateComponents(
+                    [.weekday, .weekOfYear],
+                    from: date
+                )
+            }
+        ),
+        by: \.weekOfYear
     )
-
-    let weekdaysInWeek = datesWithoutDuplicates
-        .reduce(into: [:]) { res, val in res[val.weekOfYear, default: 0] += 1 }
-        .filter { $0.value >= 3 }
-
-    return weekdaysInWeek.count
+    .filter { $0.value.count >= 3 }
+    .count
 }
