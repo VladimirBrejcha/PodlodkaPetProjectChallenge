@@ -9,13 +9,10 @@ jobs:
   check_repo_commits:
     runs-on: self-hosted
     env:
-      TEST_REPO_URL: https://github.com/VladimirBrejcha/Rise.git
-      PROJECT_FOLDER: projectFolder
+      TEST_DATE: 01:01:2021
+      TEST_REPO: Rise
+      TEST_AUTHOR: VladimirBrejcha
     steps:
       - name: Run a multi-line script
-        run: |
-          git clone ${{ env.TEST_REPO_URL }} $PROJECT_FOLDER
-          cd $PROJECT_FOLDER
-          git log --format=%cd
-          cd ../
-          rm -rf $GITHUB_WORKSPACE/$PROJECT_FOLDER
+        run: 
+          swift GetCommitDates.swift -since $01:01:2021 -repo $Rise -author $VladimirBrejcha
