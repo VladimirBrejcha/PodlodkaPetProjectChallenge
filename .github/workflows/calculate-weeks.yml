@@ -30,5 +30,6 @@ jobs:
     steps:
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          git clone env.TEST_REPO_URL
+          cd Rise
+          git log --format=%cd
