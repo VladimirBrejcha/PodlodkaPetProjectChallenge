@@ -81,9 +81,9 @@
 
 **Присоединился** 06.09.21
 
-**Цель** Изучение SwiftUI
+**Цель** Прохождение марафона "100 Days of Swift" https://www.hackingwithswift.com/100
 
-[Проект](https://github.com/LeshaAleshaaa/SwiftUIProject)
+[Проект](https://github.com/LeshaAleshaaa/100DaysOfSwift.git)
 
 ## To-do
 
