@@ -79,7 +79,7 @@
 
 #### LeshaAleshaaa
 
-**Присоединился** 06.09.21
+**Присоединился** 13.09.21
 
 **Цель** Прохождение марафона "100 Days of Swift" https://www.hackingwithswift.com/100
 
