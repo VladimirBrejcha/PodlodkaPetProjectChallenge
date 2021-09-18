@@ -12,14 +12,9 @@ jobs:
       START_DATE_1: 06:09:2021
       REPO_1: RedmineClient
       AUTHOR_1: Ernest0-Production
-      
       START_DATE_2: 06:09:2021
       REPO_2: Rise
       AUTHOR_2: VladimirBrejcha
-      
-      START_DATE_3: 13:09:2021
-      REPO_3: 100DaysOfSwift
-      AUTHOR_3: LeshaAleshaaa
     steps:
       - name: Fetch repo
         uses: actions/checkout@v2
