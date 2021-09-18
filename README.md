@@ -75,16 +75,6 @@
 
 [Проект](https://github.com/VladimirBrejcha/Rise)
 
----
-
-#### LeshaAleshaaa
-
-**Присоединился** 13.09.21
-
-**Цель** Прохождение марафона "100 Days of Swift" https://www.hackingwithswift.com/100
-
-[Проект](https://github.com/LeshaAleshaaa/100DaysOfSwift.git)
-
 ## To-do
 
 - Банк не имплементирован, пока храним монетки у себя на отдельном счету
