@@ -1,8 +1,6 @@
 name: Calculate participants weeks
 
 on:
-  schedule:
-    - cron: "0 8 * * 1"
   workflow_dispatch:
 
 jobs:
@@ -10,11 +8,8 @@ jobs:
     runs-on: self-hosted
     env:
       START_DATE_1: 06:09:2021
-      REPO_1: RedmineClient
-      AUTHOR_1: Ernest0-Production
-      START_DATE_2: 06:09:2021
-      REPO_2: Rise
-      AUTHOR_2: VladimirBrejcha
+      REPO_1: Rise
+      AUTHOR_1: VladimirBrejcha
     steps:
       - name: Fetch repo
         uses: actions/checkout@v2
@@ -24,5 +19,3 @@ jobs:
         run: |
           printf "%s\n" "Stats for $AUTHOR_1"
           swift ${GITHUB_WORKSPACE}/ChallengeActiveWeeksCalculator.swift -since $START_DATE_1 -repo $REPO_1 -author $AUTHOR_1
-          printf "%s\n" "Stats for $AUTHOR_2"
-          swift ${GITHUB_WORKSPACE}/ChallengeActiveWeeksCalculator.swift -since $START_DATE_2 -repo $REPO_2 -author $AUTHOR_2
