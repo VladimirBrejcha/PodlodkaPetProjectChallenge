@@ -65,6 +65,8 @@
 
 [Проект](https://github.com/Ernest0-Production/RedmineClient)
 
+**Вышел** 06.11.21
+
 ---
 
 #### VladimirBrejcha
